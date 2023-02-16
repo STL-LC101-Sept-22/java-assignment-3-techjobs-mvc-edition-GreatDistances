@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.mvc.controllers;
 
+import org.launchcode.techjobs.mvc.models.Job;
 import org.launchcode.techjobs.mvc.models.JobData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoic
 @RequestMapping("search")
 public class SearchController {
 
-    private static List<List> jobs = new ArrayList<>();
+    private static List<Job> jobs = new ArrayList<>();
 
     @GetMapping(value = "")
     public String search(Model model) {
@@ -35,9 +36,9 @@ public class SearchController {
     @PostMapping(value = "/results")
     public String displaySearchResults(@RequestParam String searchTerm, @RequestParam String searchType, Model model) {
         if (searchTerm.equals("all") || searchTerm.equals("")) {
-            jobs.add(JobData.findAll());
+            jobs = JobData.findAll();
         } else {
-            jobs.add(JobData.findByColumnAndValue(searchType, searchTerm));
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         }
         System.out.println(jobs);
         return "redirect:";
