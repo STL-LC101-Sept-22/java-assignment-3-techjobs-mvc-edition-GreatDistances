@@ -24,7 +24,7 @@
         <tr>
             <td>Employer</td>
             <td th:text="${job.employer}"></td>
-            <td><a href="#" th:href="@{/list/jobs/(column=${employers}, value=${job.employer})}">More From Employer</a></td>
+            <td><a href="#" th:href="@{/list/jobs/(column=${column}, value=${job.employer})}">More From Employer</a></td>
             <!-- http://localhost:8080/list/jobs?column=employer&value=BetaXAnalytics !-->
         </tr>
         <tr>
