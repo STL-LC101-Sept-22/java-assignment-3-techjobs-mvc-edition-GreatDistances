@@ -27,5 +27,41 @@
         </div>
     </div>
 
+    <div th:fragment="job-listings">
+        <th:block th:each = "job : ${jobs}">
+            <table class="job-listing">
+            <tr>
+                <td>ID</td>
+                <td th:text="${job.id}"></td>
+            </tr>
+            <tr>
+            <td>Name</td>
+                <td th:text="${job.name}"></td>
+            </tr>
+            <tr>
+                <td>Employer</td>
+                <td th:text="${job.employer}"></td>
+                <td><a href="#" th:href="@{/list/jobs/(column=${column}, value=${job.employer})}">More From Employer</a></td>
+                <!-- http://localhost:8080/list/jobs?column=employer&value=BetaXAnalytics !-->
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td th:text="${job.location}"></td>
+                <td><a href="#" th:href="@{/list/jobs/(column=${column}, value=${job.location})}">More At Location</a></td>
+            </tr>
+            <tr>
+                <td>Position Type</td>
+                <td th:text="${job.positionType}"></td>
+                <td><a href="#" th:href="@{/list/jobs/(column=${column}, value=${job.positionType})}">More of this Position Type</a></td>
+            </tr>
+            <tr>
+                <td>Skill</td>
+                <td th:text="${job.coreCompetency}"></td>
+                <td><a href="#" th:href="@{/list/jobs/(column=${column}, value=${job.coreCompetency})}">More of this Skill</a></td>
+            </tr>
+            </table>
+        </th:block>
+    </div>
+
 </body>
 </html>
