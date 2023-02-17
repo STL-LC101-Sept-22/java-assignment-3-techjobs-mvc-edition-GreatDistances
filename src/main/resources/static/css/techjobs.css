@@ -31,6 +31,10 @@ table.job-listing {
 
 table.job-listing td:first-child {
     font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: gray;
+    text-align: center;
 }
 
 table.job-listing td:last-child {
