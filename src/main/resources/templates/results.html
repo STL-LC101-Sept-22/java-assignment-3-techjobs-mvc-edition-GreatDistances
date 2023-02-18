@@ -39,6 +39,8 @@
 
     <div th:replace="fragments :: job-listings"></div>
 
+    <p id="no-results-msg" th:if="${jobs.size() < 1}">NO SEARCH RESULTS</p>
+
 </div>
 
 </body>

@@ -42,16 +42,13 @@ public class SearchController {
             model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
-            model.addAttribute("title", "Search Results"); // TODO - TITLE NEEDS TO BE FIXED FOR RESPONSIVENESS
+            model.addAttribute("title", "Search Results for Keyword '" + searchTerm +"' by " + searchType);
         }
-        System.out.println(jobs);
 
-        //TODO - need to figure out how to show search nav on search/results
         model.addAttribute("columns", columnChoices);
         model.addAttribute("jobs", jobs);
 
-        return "list-jobs";
-        //return "redirect:"; // this code WORKS for displaying proper results and search nav on localhost:8080/search
+        return "results";
     }
 
 
