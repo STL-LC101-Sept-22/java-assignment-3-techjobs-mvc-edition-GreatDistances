@@ -40,27 +40,23 @@
             </tr>
             <tr>
                 <td>Employer</td>
-                <td th:text="${job.employer}"></td>
-                <td><a href="#" th:href="@{/list/jobs/(column='employer', value=${job.employer})}">More From Employer</a></td>
+                <td><a th:text="${job.employer}" th:href="@{/list/jobs/(column='employer', value=${job.employer})}"></a></td>
                 <!-- TODO: replace column='employer' with variable expression ${} that returns "employer", like below-->
                 <!-- http://localhost:8080/list/jobs?column=employer&value=BetaXAnalytics !-->
             </tr>
             <tr>
                 <td>Location</td>
-                <td th:text="${job.location}"></td>
-                <td><a href="#" th:href="@{/list/jobs/(column='location', value=${job.location})}">More At Location</a></td>
+                <td><a th:text="${job.location}" th:href="@{/list/jobs/(column='location', value=${job.location})}"></a></td>
                 <!-- TODO: replace column='location' with variable expression ${} that returns "location" -->
             </tr>
             <tr>
                 <td>Position Type</td>
-                <td th:text="${job.positionType}"></td>
-                <td><a href="#" th:href="@{/list/jobs/(column='positionType', value=${job.positionType})}">More of this Position Type</a></td>
+                <td><a th:text="${job.positionType}" th:href="@{/list/jobs/(column='positionType', value=${job.positionType})}"></a></td>
                 <!-- TODO: replace column='positionType' with variable expression ${} that returns "positionType" -->
             </tr>
             <tr>
                 <td>Skill</td>
-                <td th:text="${job.coreCompetency}"></td>
-                <td><a href="#" th:href="@{/list/jobs/(column='coreCompetency', value=${job.coreCompetency})}">More of this Skill</a></td>
+                <td><a th:text="${job.coreCompetency}" th:href="@{/list/jobs/(column='coreCompetency', value=${job.coreCompetency})}"></a></td>
                 <!-- TODO: replace column='coreCompetency' with variable expression ${} that returns "coreCompetency" -->
             </tr>
             </table>
