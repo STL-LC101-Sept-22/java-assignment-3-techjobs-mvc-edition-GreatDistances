@@ -13,6 +13,8 @@
     <!-- TODO #1 - Use a loop to display job results in a table. -->
     <div th:replace="fragments :: job-listings"></div>
 
+    <h3 id="no-results-msg" th:if="${jobs.size() < 1}">NO RESULTS</h3>
+
 
 </div>
 

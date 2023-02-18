@@ -26,6 +26,7 @@ public class SearchController {
 
     @GetMapping(value = "")
     public String search(Model model) {
+        jobs.clear(); // added to remove previous search results when reloading the search page
         model.addAttribute("columns", columnChoices);
         model.addAttribute("jobs", jobs);
         return "search";
@@ -42,11 +43,21 @@ public class SearchController {
 
         if (searchTerm.equals("all") || searchTerm.equals("")) {
             jobs = JobData.findAll();
+            model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+            model.addAttribute("title", "Search Results"); // THIS NEEDS TO BE FIXED FOR RESPONSIVENESS
         }
         System.out.println(jobs);
-        return "redirect:"; // this code WORKS for displaying proper results on localhost:8080/search
+
+        model.addAttribute("columns", columnChoices);
+        model.addAttribute("jobs", jobs);
+
+
+
+
+        return "list-jobs";
+        //return "redirect:"; // this code WORKS for displaying proper results on localhost:8080/search
     }
 
 
